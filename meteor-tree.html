@@ -1,0 +1,28 @@
+<head>
+    <title>meteor-tree</title>
+</head>
+
+<body>
+{{>editor}}
+</body>
+
+<template name="editor">
+    {{#each section}}
+        <div class="section">
+            <h2>{{title}}</h2>
+            {{>getElements}}
+        </div>
+    {{/each}}
+</template>
+
+<template name="getElements">
+    <ul>
+        {{#each children}}
+            <li>{{title}}
+                {{#if hasChildren}}
+                    {{>getElements}}
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</template>
